@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Properties - PropertyHub</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-primary-600">PropertyHub</h1>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-primary-600 transition-colors">Home</a>
+                    <a href="properties.html" class="text-primary-600 font-medium">Properties</a>
+                    <a href="about.html" class="text-gray-700 hover:text-primary-600 transition-colors">About</a>
+                    <div class="auth-links">
+                        <a href="login.html" class="text-gray-700 hover:text-primary-600 transition-colors" id="loginLink">Login</a>
+                        <a href="profile.html" class="text-gray-700 hover:text-primary-600 transition-colors hidden" id="profileLink">Profile</a>
+                        <button class="text-gray-700 hover:text-primary-600 transition-colors hidden ml-4" id="logoutBtn">Logout</button>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-primary-600">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-gray-700 hover:text-primary-600">Home</a>
+                <a href="properties.html" class="block px-3 py-2 text-primary-600 font-medium">Properties</a>
+                <a href="about.html" class="block px-3 py-2 text-gray-700 hover:text-primary-600">About</a>
+                <a href="login.html" class="block px-3 py-2 text-gray-700 hover:text-primary-600" id="mobileLoginLink">Login</a>
+                <a href="profile.html" class="block px-3 py-2 text-gray-700 hover:text-primary-600 hidden" id="mobileProfileLink">Profile</a>
+                <button class="block px-3 py-2 text-gray-700 hover:text-primary-600 text-left w-full hidden" id="mobileLogoutBtn">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="pt-24 pb-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4">Find Your Perfect Property</h1>
+            <p class="text-xl text-gray-600">Browse through our extensive collection of properties</p>
+        </div>
+    </section>
+
+    <!-- Search and Filters -->
+    <section class="py-8 bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-5 gap-4">
+                <div>
+                    <input type="text" id="searchInput" placeholder="Search by location..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                </div>
+                <div>
+                    <select id="typeFilter" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                        <option value="">Property Type</option>
+                        <option value="house">House</option>
+                        <option value="apartment">Apartment</option>
+                        <option value="condo">Condo</option>
+                        <option value="commercial">Commercial</option>
+                    </select>
+                </div>
+                <div>
+                    <select id="priceFilter" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                        <option value="">Price Range</option>
+                        <option value="0-100000">Under $100K</option>
+                        <option value="100000-300000">$100K - $300K</option>
+                        <option value="300000-500000">$300K - $500K</option>
+                        <option value="500000-1000000">$500K - $1M</option>
+                        <option value="1000000-999999999">Above $1M</option>
+                    </select>
+                </div>
+                <div>
+                    <select id="bedroomFilter" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                        <option value="">Bedrooms</option>
+                        <option value="1">1 Bedroom</option>
+                        <option value="2">2 Bedrooms</option>
+                        <option value="3">3 Bedrooms</option>
+                        <option value="4">4+ Bedrooms</option>
+                    </select>
+                </div>
+                <div>
+                    <button id="searchBtn" class="w-full bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-primary-700 transition-colors">
+                        <i class="fas fa-search mr-2"></i>Search
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Grid -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center mb-8">
+                <p class="text-gray-600" id="resultsCount">Showing all properties</p>
+                <select id="sortFilter" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                    <option value="newest">Newest First</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                </select>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="propertiesGrid">
+                <!-- Properties will be loaded dynamically -->
+            </div>
+            <div id="noResults" class="text-center py-12 hidden">
+                <i class="fas fa-search text-6xl text-gray-300 mb-4"></i>
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">No Properties Found</h3>
+                <p class="text-gray-600">Try adjusting your search criteria</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">PropertyHub</h3>
+                    <p class="text-gray-400 mb-4">Your trusted partner in finding the perfect property. We connect buyers, sellers, and renters with ease.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="properties.html" class="text-gray-400 hover:text-white transition-colors">Properties</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="login.html" class="text-gray-400 hover:text-white transition-colors">Login</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Property Types</h4>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400">Houses</li>
+                        <li class="text-gray-400">Apartments</li>
+                        <li class="text-gray-400">Condos</li>
+                        <li class="text-gray-400">Commercial</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Admin</h4>
+                    <div class="space-y-2">
+                        <p class="text-gray-400 flex items-center"><i class="fas fa-phone mr-2"></i> +1 (555) 123-4567</p>
+                        <p class="text-gray-400 flex items-center"><i class="fas fa-envelope mr-2"></i> admin@propertyhub.com</p>
+                        <p class="text-gray-400 flex items-center"><i class="fas fa-map-marker-alt mr-2"></i> 123 Property St, Real Estate City</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2025 PropertyHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="properties.js"></script>
+</body>
+</html>
