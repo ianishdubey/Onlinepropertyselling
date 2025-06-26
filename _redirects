@@ -1,0 +1,21 @@
+# Netlify redirects for static HTML site
+
+# Handle clean URLs (redirect to .html files)
+/properties   /properties.html   200
+/about        /about.html        200
+/login        /login.html        200
+/profile      /profile.html      200
+/admin        /admin.html        200
+
+# Handle direct access to HTML files
+/properties.html  /properties.html  200
+/about.html       /about.html       200
+/login.html       /login.html       200
+/profile.html     /profile.html     200
+/admin.html       /admin.html       200
+
+# Root redirect
+/             /index.html        200
+
+# 404 fallback - redirect unknown routes to home
+/*            /index.html        404

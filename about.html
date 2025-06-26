@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - PropertyHub</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-primary-600">PropertyHub</h1>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-primary-600 transition-colors">Home</a>
+                    <a href="properties.html" class="text-gray-700 hover:text-primary-600 transition-colors">Properties</a>
+                    <a href="about.html" class="text-primary-600 font-medium">About</a>
+                    <div class="auth-links">
+                        <a href="login.html" class="text-gray-700 hover:text-primary-600 transition-colors" id="loginLink">Login</a>
+                        <a href="profile.html" class="text-gray-700 hover:text-primary-600 transition-colors hidden" id="profileLink">Profile</a>
+                        <button class="text-gray-700 hover:text-primary-600 transition-colors hidden ml-4" id="logoutBtn">Logout</button>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-primary-600">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-gray-700 hover:text-primary-600">Home</a>
+                <a href="properties.html" class="block px-3 py-2 text-gray-700 hover:text-primary-600">Properties</a>
+                <a href="about.html" class="block px-3 py-2 text-primary-600 font-medium">About</a>
+                <a href="login.html" class="block px-3 py-2 text-gray-700 hover:text-primary-600" id="mobileLoginLink">Login</a>
+                <a href="profile.html" class="block px-3 py-2 text-gray-700 hover:text-primary-600 hidden" id="mobileProfileLink">Profile</a>
+                <button class="block px-3 py-2 text-gray-700 hover:text-primary-600 text-left w-full hidden" id="mobileLogoutBtn">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 bg-gradient-to-br from-primary-50 to-secondary-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">About PropertyHub</h1>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">We're revolutionizing the real estate industry by connecting buyers, sellers, and renters through innovative technology and exceptional service.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">Our Mission</h2>
+                    <p class="text-lg text-gray-600 mb-6">
+                        PropertyHub was founded with a simple mission: to make real estate transactions transparent, efficient, and accessible to everyone. We believe that finding the perfect property should be an exciting journey, not a stressful ordeal.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Since our inception in 2020, we've helped thousands of people find their dream homes and investment properties. Our platform combines cutting-edge technology with human expertise to deliver an unparalleled real estate experience.
+                    </p>
+                    <div class="grid grid-cols-2 gap-8">
+                        <div>
+                            <div class="text-3xl font-bold text-primary-600 mb-2">10K+</div>
+                            <div class="text-gray-600">Properties Listed</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-secondary-600 mb-2">5K+</div>
+                            <div class="text-gray-600">Happy Clients</div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Team Meeting" class="rounded-lg shadow-xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Our Values</h2>
+                <p class="text-xl text-gray-600">The principles that guide everything we do</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                    <div class="bg-primary-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-handshake text-primary-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Transparency</h3>
+                    <p class="text-gray-600">We believe in honest, transparent communication throughout every transaction. No hidden fees, no surprises.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                    <div class="bg-secondary-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-rocket text-secondary-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Innovation</h3>
+                    <p class="text-gray-600">We continuously innovate to make real estate transactions faster, easier, and more efficient.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                    <div class="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-heart text-orange-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Customer First</h3>
+                    <p class="text-gray-600">Your success is our success. We're committed to providing exceptional service and support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Meet Our Team</h2>
+                <p class="text-xl text-gray-600">The dedicated professionals behind PropertyHub</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400" alt="John Smith" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">John Smith</h3>
+                    <p class="text-primary-600 mb-2">CEO & Founder</p>
+                    <p class="text-gray-600">15+ years in real estate technology</p>
+                </div>
+                <div class="text-center">
+                    <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Sarah Johnson" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Sarah Johnson</h3>
+                    <p class="text-primary-600 mb-2">Head of Operations</p>
+                    <p class="text-gray-600">Expert in property management systems</p>
+                </div>
+                <div class="text-center">
+                    <img src="https://images.pexels.com/photos/697509/pexels-photo-697509.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Michael Brown" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Michael Brown</h3>
+                    <p class="text-primary-600 mb-2">CTO</p>
+                    <p class="text-gray-600">Leading our technical innovation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-primary-600">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6">Ready to Get Started?</h2>
+            <p class="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">Join thousands of satisfied customers who have found their perfect property through PropertyHub.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="properties.html" class="bg-white text-primary-600 px-8 py-3 rounded-lg hover:bg-gray-50 transition-colors font-medium">
+                    Browse Properties
+                </a>
+                <a href="login.html" class="border-2 border-white text-white px-8 py-3 rounded-lg hover:bg-white hover:text-primary-600 transition-colors font-medium">
+                    List Your Property
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">PropertyHub</h3>
+                    <p class="text-gray-400 mb-4">Your trusted partner in finding the perfect property. We connect buyers, sellers, and renters with ease.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="properties.html" class="text-gray-400 hover:text-white transition-colors">Properties</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="login.html" class="text-gray-400 hover:text-white transition-colors">Login</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Property Types</h4>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400">Houses</li>
+                        <li class="text-gray-400">Apartments</li>
+                        <li class="text-gray-400">Condos</li>
+                        <li class="text-gray-400">Commercial</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Admin</h4>
+                    <div class="space-y-2">
+                        <p class="text-gray-400 flex items-center"><i class="fas fa-phone mr-2"></i> +1 (555) 123-4567</p>
+                        <p class="text-gray-400 flex items-center"><i class="fas fa-envelope mr-2"></i> admin@propertyhub.com</p>
+                        <p class="text-gray-400 flex items-center"><i class="fas fa-map-marker-alt mr-2"></i> 123 Property St, Real Estate City</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2025 PropertyHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>

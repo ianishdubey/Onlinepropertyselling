@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - PropertyHub</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-primary-600">PropertyHub</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-primary-600 transition-colors">Home</a>
+                    <a href="properties.html" class="text-gray-700 hover:text-primary-600 transition-colors">Properties</a>
+                    <a href="about.html" class="text-gray-700 hover:text-primary-600 transition-colors">About</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Section -->
+    <section class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-md w-full space-y-8">
+            <div class="text-center">
+                <h2 class="text-3xl font-bold text-gray-900 mb-2">Welcome Back</h2>
+                <p class="text-gray-600">Sign in to your account or create a new one</p>
+            </div>
+
+            <!-- Login Form -->
+            <div class="bg-white p-8 rounded-lg shadow-lg" id="loginForm">
+                <form id="loginFormElement" class="space-y-6">
+                    <div>
+                        <label for="loginEmail" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                        <input type="email" id="loginEmail" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                    </div>
+                    <div>
+                        <label for="loginPassword" class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                        <input type="password" id="loginPassword" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                    </div>
+                    <div>
+                        <button type="submit" class="w-full bg-primary-600 text-white py-2 px-4 rounded-lg hover:bg-primary-700 transition-colors font-medium">
+                            Sign In
+                        </button>
+                    </div>
+                </form>
+                <div class="mt-6 text-center">
+                    <p class="text-gray-600">Don't have an account? 
+                        <button id="showRegister" class="text-primary-600 hover:text-primary-700 font-medium">Sign up</button>
+                    </p>
+                </div>
+                <div class="mt-6 pt-6 border-t border-gray-200">
+                    <div class="text-center">
+                        <p class="text-sm text-gray-600 mb-4">Demo Accounts:</p>
+                        <div class="space-y-2 text-sm">
+                            <p><strong>Admin:</strong> admin@propertyhub.com / admin123</p>
+                            <p><strong>User:</strong> user@example.com / user123</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Register Form -->
+            <div class="bg-white p-8 rounded-lg shadow-lg hidden" id="registerForm">
+                <form id="registerFormElement" class="space-y-6">
+                    <div>
+                        <label for="registerName" class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                        <input type="text" id="registerName" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                    </div>
+                    <div>
+                        <label for="registerEmail" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                        <input type="email" id="registerEmail" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                    </div>
+                    <div>
+                        <label for="registerPhone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                        <input type="tel" id="registerPhone" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                    </div>
+                    <div>
+                        <label for="registerPassword" class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                        <input type="password" id="registerPassword" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                    </div>
+                    <div>
+                        <label for="confirmPassword" class="block text-sm font-medium text-gray-700 mb-2">Confirm Password</label>
+                        <input type="password" id="confirmPassword" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                    </div>
+                    <div>
+                        <button type="submit" class="w-full bg-primary-600 text-white py-2 px-4 rounded-lg hover:bg-primary-700 transition-colors font-medium">
+                            Create Account
+                        </button>
+                    </div>
+                </form>
+                <div class="mt-6 text-center">
+                    <p class="text-gray-600">Already have an account? 
+                        <button id="showLogin" class="text-primary-600 hover:text-primary-700 font-medium">Sign in</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">PropertyHub</h3>
+                    <p class="text-gray-400 mb-4">Your trusted partner in finding the perfect property. We connect buyers, sellers, and renters with ease.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="properties.html" class="text-gray-400 hover:text-white transition-colors">Properties</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="login.html" class="text-gray-400 hover:text-white transition-colors">Login</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Property Types</h4>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400">Houses</li>
+                        <li class="text-gray-400">Apartments</li>
+                        <li class="text-gray-400">Condos</li>
+                        <li class="text-gray-400">Commercial</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Admin</h4>
+                    <div class="space-y-2">
+                        <p class="text-gray-400 flex items-center"><i class="fas fa-phone mr-2"></i> +1 (555) 123-4567</p>
+                        <p class="text-gray-400 flex items-center"><i class="fas fa-envelope mr-2"></i> admin@propertyhub.com</p>
+                        <p class="text-gray-400 flex items-center"><i class="fas fa-map-marker-alt mr-2"></i> 123 Property St, Real Estate City</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2025 PropertyHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="auth.js"></script>
+</body>
+</html>

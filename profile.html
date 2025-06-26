@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - PropertyHub</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-primary-600">PropertyHub</h1>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-primary-600 transition-colors">Home</a>
+                    <a href="properties.html" class="text-gray-700 hover:text-primary-600 transition-colors">Properties</a>
+                    <a href="about.html" class="text-gray-700 hover:text-primary-600 transition-colors">About</a>
+                    <div class="auth-links">
+                        <a href="profile.html" class="text-primary-600 font-medium" id="profileLink">Profile</a>
+                        <button class="text-gray-700 hover:text-primary-600 transition-colors ml-4" id="logoutBtn">Logout</button>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-primary-600">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-gray-700 hover:text-primary-600">Home</a>
+                <a href="properties.html" class="block px-3 py-2 text-gray-700 hover:text-primary-600">Properties</a>
+                <a href="about.html" class="block px-3 py-2 text-gray-700 hover:text-primary-600">About</a>
+                <a href="profile.html" class="block px-3 py-2 text-primary-600 font-medium" id="mobileProfileLink">Profile</a>
+                <button class="block px-3 py-2 text-gray-700 hover:text-primary-600 text-left w-full" id="mobileLogoutBtn">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Content -->
+    <div class="pt-24 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Profile Header -->
+            <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+                <div class="flex items-center space-x-6">
+                    <div class="w-20 h-20 bg-primary-100 rounded-full flex items-center justify-center">
+                        <i class="fas fa-user text-primary-600 text-2xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold text-gray-900" id="userNameDisplay">Loading...</h1>
+                        <p class="text-gray-600" id="userEmailDisplay">Loading...</p>
+                        <p class="text-sm text-gray-500" id="userRoleDisplay">Loading...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin Panel (Only visible to admins) -->
+            <div id="adminPanel" class="hidden mb-8">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-xl font-bold text-gray-900">Admin Panel</h2>
+                        <a href="admin.html" class="bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-colors">
+                            <i class="fas fa-cog mr-2"></i>Manage Properties
+                        </a>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-primary-50 p-4 rounded-lg">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-primary-600 font-medium">Total Properties</p>
+                                    <p class="text-2xl font-bold text-primary-700" id="totalProperties">0</p>
+                                </div>
+                                <i class="fas fa-home text-primary-600 text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="bg-secondary-50 p-4 rounded-lg">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-secondary-600 font-medium">Active Users</p>
+                                    <p class="text-2xl font-bold text-secondary-700" id="activeUsers">0</p>
+                                </div>
+                                <i class="fas fa-users text-secondary-600 text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="bg-orange-50 p-4 rounded-lg">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-orange-600 font-medium">Pending Approvals</p>
+                                    <p class="text-2xl font-bold text-orange-700" id="pendingApprovals">0</p>
+                                </div>
+                                <i class="fas fa-clock text-orange-600 text-2xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User Dashboard -->
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Main Content -->
+                <div class="lg:col-span-2 space-y-8">
+                    <!-- My Properties -->
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <div class="flex justify-between items-center mb-6">
+                            <h2 class="text-xl font-bold text-gray-900">My Properties</h2>
+                            <button id="addPropertyBtn" class="bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-colors">
+                                <i class="fas fa-plus mr-2"></i>Add Property
+                            </button>
+                        </div>
+                        <div id="userProperties" class="space-y-4">
+                            <!-- User properties will be loaded here -->
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <h2 class="text-xl font-bold text-gray-900 mb-6">Recent Activity</h2>
+                        <div id="recentActivity" class="space-y-4">
+                            <!-- Recent activity will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="space-y-8">
+                    <!-- Profile Settings -->
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Profile Settings</h3>
+                        <div class="space-y-4">
+                            <button class="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors">
+                                <i class="fas fa-user mr-3"></i>Edit Profile
+                            </button>
+                            <button class="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors">
+                                <i class="fas fa-key mr-3"></i>Change Password
+                            </button>
+                            <button class="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg transition-colors">
+                                <i class="fas fa-bell mr-3"></i>Notifications
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Quick Stats</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Listed Properties</span>
+                                <span class="font-semibold" id="userPropertyCount">0</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Profile Views</span>
+                                <span class="font-semibold">1,234</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Inquiries Received</span>
+                                <span class="font-semibold">56</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Property Modal -->
+    <div id="addPropertyModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-lg p-8 max-w-2xl w-full mx-4 max-h-screen overflow-y-auto">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-900">Add New Property</h2>
+                <button id="closeModal" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <form id="addPropertyForm" class="space-y-6">
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Property Title</label>
+                        <input type="text" name="title" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Property Type</label>
+                        <select name="type" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                            <option value="">Select Type</option>
+                            <option value="house">House</option>
+                            <option value="apartment">Apartment</option>
+                            <option value="condo">Condo</option>
+                            <option value="commercial">Commercial</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Price ($)</label>
+                        <input type="number" name="price" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Area (sq ft)</label>
+                        <input type="number" name="area" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Bedrooms</label>
+                        <input type="number" name="bedrooms" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Bathrooms</label>
+                        <input type="number" name="bathrooms" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Parking</label>
+                        <input type="number" name="parking" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Location</label>
+                    <input type="text" name="location" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Description</label>
+                    <textarea name="description" rows="4" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"></textarea>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Image URL</label>
+                    <input type="url" name="image" placeholder="https://example.com/image.jpg" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                </div>
+                <div class="flex justify-end space-x-4">
+                    <button type="button" id="cancelAdd" class="px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors">Cancel</button>
+                    <button type="submit" class="px-6 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors">Add Property</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">PropertyHub</h3>
+                    <p class="text-gray-400 mb-4">Your trusted partner in finding the perfect property. We connect buyers, sellers, and renters with ease.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="properties.html" class="text-gray-400 hover:text-white transition-colors">Properties</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="login.html" class="text-gray-400 hover:text-white transition-colors">Login</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Property Types</h4>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400">Houses</li>
+                        <li class="text-gray-400">Apartments</li>
+                        <li class="text-gray-400">Condos</li>
+                        <li class="text-gray-400">Commercial</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Admin</h4>
+                    <div class="space-y-2">
+                        <p class="text-gray-400 flex items-center"><i class="fas fa-phone mr-2"></i> +1 (555) 123-4567</p>
+                        <p class="text-gray-400 flex items-center"><i class="fas fa-envelope mr-2"></i> admin@propertyhub.com</p>
+                        <p class="text-gray-400 flex items-center"><i class="fas fa-map-marker-alt mr-2"></i> 123 Property St, Real Estate City</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2025 PropertyHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="profile.js"></script>
+</body>
+</html>
